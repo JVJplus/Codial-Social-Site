@@ -8,8 +8,11 @@ console.log("Router Loaded");
 //For direct requests
 router.get('/',homeController.home);
 
-// For url/users requests
+// For /users requests
 router.use('/users', require('./users'));
+
+// For /posts requests
+router.use('/posts', require('./posts'));
 
 //For any further routes, access from here
 //router.use('/routerName'', require('./routerFile));
