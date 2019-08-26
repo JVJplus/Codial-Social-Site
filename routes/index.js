@@ -18,3 +18,21 @@ router.use('/posts', require('./posts'));
 //router.use('/routerName'', require('./routerFile));
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+//should be at end of all calls!
+//For Invalid calls
+router.use('/',function(req,res){
+    return res.end("<h1 style='text-align:center;color:red'>404 Error</h1>");       
+});
