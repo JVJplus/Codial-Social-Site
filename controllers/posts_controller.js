@@ -1,5 +1,8 @@
 module.exports.home = function (req, res) {
-        return res.end("<h1>Write Post Here</h1>");       
+        // return res.end("<h1>Write Post Here</h1>");       
+        return res.render('posts',{
+                title:"Posts"
+        });
 }
 
 module.exports.jvjplus = function (req, res) {
