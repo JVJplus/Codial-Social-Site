@@ -1,5 +1,6 @@
 module.exports.home = function (req, res) {
         return res.render('home', {
-                title: 'Codial'
+                title: 'Codial',
+                layout: 'blank_layout'
         });  
 }

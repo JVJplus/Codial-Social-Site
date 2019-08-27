@@ -8,12 +8,8 @@ const expressLayouts = require('express-ejs-layouts');
 //for ejs layouts 
 app.use(expressLayouts);
 
-
 //use express router
 app.use('/', require('./routes'));
-
-
-app.use('/',require('./routes'));
 
 //set up view engine
 app.set('view engine','ejs');
