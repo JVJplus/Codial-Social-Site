@@ -52,3 +52,33 @@ module.exports.create = function(req,res){
                 }
         });
 };
+
+module.exports.createSession =(req,res)=>{
+        //find the user
+        User.findOne({email:req.body.email},(err,user)=>{
+                if(err){
+                        console.log("Error in finding user");
+                        return;                        
+                }
+
+                //handle user not found
+                if(!user){
+                        console.log('User not found');
+                        return res.redirect('back');
+                }else{
+                        //handle user password which doesn't matches
+                        if(user.password != req.body.password){
+                                console.log('Password doesnt matches');
+                                return res.redirect('back');                               
+                        }
+                        else{
+                                //everything fine
+                                //handle session creation
+                                res.cookie('user_id',user.id);
+                                console.log("signned in successfully");
+                                
+                                return res.redirect('/users/profile');
+                        }
+                }
+        });
+};
