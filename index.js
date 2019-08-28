@@ -8,6 +8,11 @@ const expressLayouts = require('express-ejs-layouts');
 //for ejs layouts 
 app.use(expressLayouts);
 
+//for static files
+app.use(express.static('./assets'));
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
 //use express router
 app.use('/', require('./routes'));
 
