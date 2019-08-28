@@ -7,14 +7,14 @@ module.exports.profile = function(req,res){
 
 module.exports.signIn = (req,res)=>{
         res.render('users_sign_in', {
-                title: "Sing In",
+                title: "Sign In",
                 layout: 'blank_layout'
         })
 };
 
 module.exports.signUp = (req,res)=>{
         res.render('users_sign_up', {
-                title: "Sing Up",
+                title: "Sign Up",
                 layout: 'blank_layout'
         })
 };
