@@ -1,6 +1,9 @@
 const User=require('../models/user');
 module.exports.home = function(req,res){
-        res.end('<h1>User Home</h1>');
+        return res.render('users',{
+                title:'Users Home',
+                layout:'blank_layout'
+        });
 };
 module.exports.profile = function(req,res){
         if(req.cookies.user_id){
