@@ -42,7 +42,7 @@ module.exports.signUp = (req,res)=>{
 
 module.exports.signOut=(req,res)=>{
         //delete cookie
-        // res.cookie.user_id="invalid";
+        // res.cookie('user_id','invalid');
         res.clearCookie('user_id');
         
         console.log('Sign out successfully');
