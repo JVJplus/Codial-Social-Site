@@ -13,7 +13,7 @@ module.exports.profile = function(req,res){
                                         layout: 'blank_layout',
                                         user: user
                                 });
-
+                                
                         }else{
                                 //user not found
                                 console.log("user not found");
@@ -40,13 +40,22 @@ module.exports.signUp = (req,res)=>{
         })
 };
 
+module.exports.signOut=(req,res)=>{
+        //delete cookie
+        // res.cookie.user_id="invalid";
+        res.clearCookie('user_id');
+        
+        console.log('Sign out successfully');
+        return res.redirect('/users/sign-in');
+};
+
 module.exports.create = function(req,res){
         // if password and confirm password not matched
         if(req.body.password !=req.body.confirm_password){
                 console.log('Password Not Matched! Retry');
                 return res.redirect('back');
         }
-
+        
         //check if user already exists
         User.findOne({email: req.body.email},(err,user)=>{
                 //error in finding by email
@@ -61,13 +70,13 @@ module.exports.create = function(req,res){
                         return res.redirect('back');
                 }else{
                         // Create new record
-
+                        
                         User.create(req.body,(err,user)=>{
                                 if(err)
-                                        return console.log('error in creating account in database');
+                                return console.log('error in creating account in database');
                                 console.log('User Created');
                         });
-
+                        
                         return res.redirect('/users/sign-in');
                 }
         });
@@ -80,7 +89,7 @@ module.exports.createSession =(req,res)=>{
                         console.log("Error in finding user");
                         return;                        
                 }
-
+                
                 //handle user not found
                 if(!user){
                         console.log('User not found');
