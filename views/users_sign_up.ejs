@@ -1,11 +1,19 @@
-<h1>
+<h1 class="text-center bg-warning">
     Sign Up
 </h1>
 
-<form action="/users/create" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-    <input type="submit" value="Sign Up">
-</form>
+<div class="container text-center">
+    <form action="/users/create" method="POST">
+        <input class="bg-info" type="text" name="name" placeholder="Your Name" required>
+        <br><br>
+        <input class="bg-info" type="email" name="email" placeholder="Your Email" required>
+        <br><br>
+        <input class="bg-info" type="password" name="password" placeholder="Password" required>
+        <br><br>
+        <input class="bg-info" type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <br><br>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <br><br>
+    </form>
+</div>
+

@@ -3,7 +3,27 @@ module.exports.home = function(req,res){
         res.end('<h1>User Home</h1>');
 };
 module.exports.profile = function(req,res){
-        res.end('<h1>User Profile</h1>');
+        if(req.cookies.user_id){
+                User.findById(req.cookies.user_id,(err,user)=>{
+                        if(user){
+                                //user found
+                                
+                                return res.render('users_profile', {
+                                        title: 'Profile Page',
+                                        layout: 'blank_layout',
+                                        user: user
+                                });
+
+                        }else{
+                                //user not found
+                                console.log("user not found");
+                                return res.redirect('/users/sign-in');
+                        }
+                })
+        }else{
+                console.log('User not signed in');
+                return res.redirect('/users/sign-in');
+        }
 };
 
 module.exports.signIn = (req,res)=>{
